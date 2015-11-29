@@ -2,6 +2,10 @@ configurations {
     jaxb
 }
 
+ext {
+    slf4jVersion = '1.7.2'
+    logbackVersion = '1.0.9'
+}
 buildscript {
     repositories {
         mavenCentral()
@@ -74,11 +78,20 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter")
-    compile("org.springframework.ws:spring-ws-core")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-ws")
+    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
+    compile("org.springframework.ws:spring-ws-security") {
+        exclude group: "org.springframework.security", module: "spring-security-core"
+    }
+    compile("org.apache.ws.security:wss4j:1.6.19")
+    compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.slf4j:slf4j-api:$slf4jVersion")
+    compile("org.slf4j:jcl-over-slf4j:$slf4jVersion")
+    compile("ch.qos.logback:logback-core:$logbackVersion")
+    compile("ch.qos.logback:logback-classic:$logbackVersion")
     compile(files(genJaxb.classesDir).builtBy(genJaxb))
 
-    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
 }
 
 task wrapper(type: Wrapper) {

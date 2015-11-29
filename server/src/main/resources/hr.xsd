@@ -10,6 +10,13 @@
             </xs:all>
         </xs:complexType>
     </xs:element>
+    <xs:element name="HolidayResponse">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="Response" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
     <xs:complexType name="HolidayType">
         <xs:sequence>
             <xs:element name="StartDate" type="xs:date"/>
