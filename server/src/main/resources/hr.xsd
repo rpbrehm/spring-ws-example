@@ -5,7 +5,7 @@
     <xs:element name="HolidayRequest">
         <xs:complexType>
             <xs:all>
-                <xs:element name="Holiday" type="hr:HolidayType"/>                                                     (1)
+                <xs:element name="Holiday" type="hr:HolidayType"/>
                 <xs:element name="Employee" type="hr:EmployeeType"/>
             </xs:all>
         </xs:complexType>
@@ -13,14 +13,14 @@
     <xs:complexType name="HolidayType">
         <xs:sequence>
             <xs:element name="StartDate" type="xs:date"/>
-            <xs:element name="EndDate" type="xs:date"/>                                                                (2)
-        </xs:sequence>                                                                                                 (2)
+            <xs:element name="EndDate" type="xs:date"/>
+        </xs:sequence>
     </xs:complexType>
     <xs:complexType name="EmployeeType">
         <xs:sequence>
             <xs:element name="Number" type="xs:integer"/>
             <xs:element name="FirstName" type="xs:string"/>
-            <xs:element name="LastName" type="xs:string"/>                                                             (3)
-        </xs:sequence>                                                                                                 (3)
+            <xs:element name="LastName" type="xs:string"/>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>
