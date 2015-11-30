@@ -11,7 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class HREndpoint {
-	private static final String NAMESPACE_URI = "http://mycompany.com/hr/definitions";
+	private static final String NAMESPACE_URI = "http://mycompany.com/hr/schemas";
 
 	private ResponseRepository hrRepository;
 
@@ -20,7 +20,7 @@ public class HREndpoint {
 		this.hrRepository = responseRepository;
 	}
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "requestHoliday")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "HolidayRequest")
 	@ResponsePayload
 	public HolidayResponse getHolidayRequest(@RequestPayload HolidayRequest request) {
         HolidayResponse response = new HolidayResponse();

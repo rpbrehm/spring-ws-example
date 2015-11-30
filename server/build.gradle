@@ -80,7 +80,6 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-ws")
-    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
     compile("org.springframework.ws:spring-ws-security") {
         exclude group: "org.springframework.security", module: "spring-security-core"
     }
@@ -90,6 +89,7 @@ dependencies {
     compile("org.slf4j:jcl-over-slf4j:$slf4jVersion")
     compile("ch.qos.logback:logback-core:$logbackVersion")
     compile("ch.qos.logback:logback-classic:$logbackVersion")
+    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
     compile(files(genJaxb.classesDir).builtBy(genJaxb))
 
 }

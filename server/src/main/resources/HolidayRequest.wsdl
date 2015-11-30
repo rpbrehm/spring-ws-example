@@ -1,6 +1,7 @@
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:schema="http://mycompany.com/hr/schemas"
+                  name="HRService"
                   xmlns:tns="http://mycompany.com/hr/definitions"
                   targetNamespace="http://mycompany.com/hr/definitions">
     <wsdl:types>
@@ -22,21 +23,21 @@
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="HumanResourceBinding" type="tns:HumanResource">
-        <soap:binding style="document"
+        <soap12:binding style="document"
         transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="RequestHoliday">
-            <soap:operation soapAction="http://mycompany.com/RequestHoliday"/>
+            <soap12:operation soapAction="http://mycompany.com/RequestHoliday"/>
             <wsdl:input name="HolidayRequest">
-                <soap:body use="literal"/>
+                <soap12:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="HolidayResponse">
-                <soap:body use="literal"/>
+                <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="HumanResourceService">
         <wsdl:port binding="tns:HumanResourceBinding" name="HumanResourcePort">
-            <soap:address location="http://localhost:8080/holidayService/"/>
+            <soap12:address location="http://localhost:8080/service/HRService/"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

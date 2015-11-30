@@ -28,10 +28,10 @@ import java.util.List;
 @ComponentScan("com.mycompany")
 public class WebServiceConfig extends WsConfigurerAdapter {
 
-    @Value("web.service.username")
+    @Value("${web.service.username}")
     String userName;
 
-    @Value("web.service.password")
+    @Value("${web.service.password}")
     String password;
 
     // Servlet
@@ -39,7 +39,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public ServletRegistrationBean webServiceServlet(ApplicationContext context) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(context);
-        servlet.setTransformWsdlLocations(true);
+//        servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean(servlet, "/service/*");
     }
 
